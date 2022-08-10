@@ -1,38 +1,295 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app {
+  font-family: 'Poppins';
+  color: #594157;
+  /* text-align: center; */
+  background: linear-gradient(180deg, #BEE7E8 25.74%, #B9ECED 69.78%, #FFFFFF 100%);
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.app nav {
+  position: absolute;
+  width: 100%;
+  height: 64px;
+  left: 0px;
+  top: 0px;
+  background: #FFFFFF;
+  border-radius: 0px 0px 10px 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.title {
+  position: absolute;
+  width: 233px;
+  height: 22px;
+  left: 230px;
+  top: 21px;
+
+  /* Text */
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 22px;
+  letter-spacing: -1px;
+  text-transform: lowercase;
+  color: #594157;
+}
+
+.uploadResume {
+  position: absolute;
+  width: 186px;
+  height: 36px;
+  left: 71%;
+  top: 14px;
+
+  /* Text */
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  text-transform: lowercase;
+  color: #594157;
+}
+
+.uploadResume:hover {
+  color: #d730c9;
+  cursor: pointer;
+}
+
+.uploadModal {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: white;
+  outline: none;
+}
+
+.uploadOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* hide the original file input */
+.uploadChooseFile{
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+} 
+
+/* selects the first label element placed after .uploadChooseFile */
+.uploadChooseFile + label {
+  position: absolute;
+  top: 25%;
+  left: 27%;
+  background: #726DA8;
+  border: none;
+  border-radius: 15px;
+
+  /* Text */
+  padding: 20px;
+  font-family: 'Poppins';
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 22px;
+  letter-spacing: -1px;
+  text-transform: lowercase;
+  color: #FEFEFE;
+}
+
+.uploadChooseFile + label:hover{
+  background: #d730c9;
+  cursor: pointer;
+}
+
+.uploadSubmitBtn {
+  position: absolute;
+  width: 124px;
+  height: 50px;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #726DA8;
+  border: none;
+  border-radius: 15px;
+
+  /* Text */
+  font-family: 'Poppins';
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 22px;
+  letter-spacing: -1px;
+  text-transform: lowercase;
+  color: #FEFEFE;
+}
+
+.uploadSubmitBtn:hover {
+  background: #d730c9;
+  cursor: pointer;
+}
+
+.uploadCloseBtn {
+  position: absolute;
+  top: 1%;
+  right: 2%;
+  background: white;
+  border: none;
+
+  font-family: 'Poppins';
+  font-weight: 800;
+  font-size: 25px;
+}
+
+.uploadCloseBtn:hover {
+  color: #d730c9;
+  cursor: pointer;
+}
+
+.searchBar {
+  /* Background */
+  box-sizing: border-box;
+  position: absolute;
+  width: 780px;
+  height: 50px;
+  top: 14%;
+  left: 20%;
+  background: #FEFEFE;
+
+  /* Border*/
+  border: 2px solid #7D8CC4;
+  border-radius: 15px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.searchInput {
+  /* Invisible Box */
+  width: 550px;
+  height: 38px;
+  background: white;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+
+  /* Text */
+  font-size: 16px;
+  padding-top: 4px;
+  padding-left: 56px;
+  color: rgba(43, 43, 43, 0.75);
+}
+
+.searchBtn {
+  /* Button */
+  position: absolute;
+  width: 124px;
+  height: 50px;
+  left: 655px;
+  top: -2px;
+  background: #726DA8;
+  border: none;
+  border-radius: 15px;
+
+  /* Text */
+  font-family: 'Poppins';
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 22px;
+  letter-spacing: -1px;
+  text-transform: lowercase;
+  color: #FEFEFE;
+}
+
+.searchBtn:hover {
+  background: #d730c9;
+  cursor: pointer;
+}
+
+.resumeTilesBoard {
+  position: absolute;
+  display: flex;
+  justify-content: center; /* centers flex items along main axis (horizontal) */
+  flex-wrap: wrap;
+
+  width: 90%;
+  height: 50%;
+  top: 30%;
+  left: 5%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+.resumeTile {
+  background: #FEFEFE;
+  box-shadow: 2px 4px 10px #A0D2DB;
+  border-radius: 20px;
+  /* with absolute position, WxH is % of the div it is inside */
+  width: 20%;
+  height: 90%;
+  margin: 1%;
+
+  /* Text */
+  font-size: 12px;
+}
+
+.resumeTile h1 {
+  position: relative;
+  font-size: 16px;
+  left: 5%;
+}
+
+.resumeTile h2 {
+  position: relative;
+  font-size: 14px;
+  left: 5%;
+}
+
+.resumeTile div{
+  position: relative;
+  left: 5%;
+}
+
+.resumeSkillsContainer{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 90%;
+  height: 15%;
+  gap: 5px;
+  margin-left: -4%;
+}
+
+.resumeSkill {
+  display: flex;
+  height: 60%;
+  box-sizing: border-box;
+  padding: 3px 7px;
+  border: 0.5px dashed #726DA8;
+  border-radius: 10px;
+}
+
+.resumeTile button {
+  /* Button */
+  position: relative;
+  width: 40%;
+  height: 15%;
+  background: #726DA8;
+  border: none;
+  border-radius: 15px;
+  bottom: -10%;
+  left: 29%;
+
+  /* Text */
+  font-family: 'Poppins';
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: -1px;
+  text-transform: lowercase;
+  color: #FEFEFE;
 }
