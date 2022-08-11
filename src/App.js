@@ -5,6 +5,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ResumeTile from './components/ResumeTile'
+import { useState, useMemo} from "react";
+import Pagination from './components/Pagination';
+import resumeData from './mock_data.json';
+
 
 Modal.setAppElement('#root');
 
@@ -17,6 +21,17 @@ function App() {
     e.preventDefault();
     toast("Wow so easy !");
   }
+
+  // For pagination
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // Resume data
+  const resumeDataView = useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * 3;
+    const lastPageIndex = firstPageIndex + 3;
+    return resumeData.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage]);
+
 
   return (
     <div className="app">
@@ -49,9 +64,24 @@ function App() {
       </div>
 
       {/* Resume summary tiles */}
-      <div className="resumeTilesBoard">
-        <ResumeTile testClick={testClick}/>
+        <div className="resumeTilesBoard">
+        {resumeDataView.map(item => {
+          return (
+            <ResumeTile 
+              testClick={testClick}
+              name={item.name}
+              birthday={item.birthday}
+              email={item.email}
+              phone={item.phone}
+              location={item.location}
+              skill1={item.skill1}
+              skill2={item.skill2}
+              skill3={item.skill3}
+            />
+          );
+        })}
       </div>
+
 
       <ToastContainer
         position="bottom-right"
@@ -61,6 +91,15 @@ function App() {
         rtl={false}
         transition={Slide}
       />
+
+      <Pagination
+        className="pagination-bar"
+        currentPage={currentPage}
+        totalCount={resumeData.size}
+        pageSize={3}
+        onPageChange={page => setCurrentPage(page)}
+      />
+
     </div>
   );
 }
