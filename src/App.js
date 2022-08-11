@@ -66,8 +66,39 @@ function App() {
           skill2="Python"
           skill3="Sql"
         />
-        <ResumeTile testClick={testClick}/>
-        <ResumeTile testClick={testClick}/>
+        <ResumeTile 
+          testClick={testClick}
+          name="Allison Wonderland"
+          birthday="August 9, 17:00"
+          email="allison.wonderland@gmail.com"
+          phone="+1(000)231-2313"
+          location="Topeka, Kansas"
+          skill1="Rust"
+          skill2="Javascript"
+          skill3="C++"
+        />
+        <ResumeTile 
+          testClick={testClick}
+          name="Tony Smith"
+          birthday="August 9, 17:00"
+          email="tonysmith@gmail.com"
+          phone="+1(000)111-2234"
+          location="Toronto, Canada"
+          skill1="JavaScript"
+          skill2="Python"
+          skill3="Sql"
+        />
+        <ResumeTile 
+          testClick={testClick}
+          name="Another Person"
+          birthday="August 9, 17:00"
+          email="another.person@gmail.com"
+          phone="+1(000)111-2234"
+          location="Springfield, Illinois"
+          skill1="Ruby"
+          skill2="Pascal"
+          skill3="Fortran"
+        />
       </div>
 
 
