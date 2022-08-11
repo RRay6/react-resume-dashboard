@@ -35,6 +35,12 @@
   color: #594157;
 }
 
+.titleLogo{
+  position: absolute;
+  left: 180px;
+  top: 8px;
+}
+
 .uploadResume {
   position: absolute;
   width: 200px;
@@ -173,9 +179,15 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.searchLogo {
+  position: absolute;
+  left: 20px;
+  top: 12px;
+}
+
 .searchInput {
   /* Invisible Box */
-  width: 550px;
+  width: 668px;
   height: 38px;
   background: white;
   outline: none;
@@ -187,32 +199,6 @@
   padding-top: 4px;
   padding-left: 56px;
   color: rgba(43, 43, 43, 0.75);
-}
-
-.searchBtn {
-  /* Button */
-  position: absolute;
-  width: 124px;
-  height: 50px;
-  left: 655px;
-  top: -2px;
-  background: #726DA8;
-  border: none;
-  border-radius: 15px;
-
-  /* Text */
-  font-family: 'Poppins';
-  font-weight: 800;
-  font-size: 20px;
-  line-height: 22px;
-  letter-spacing: -1px;
-  text-transform: lowercase;
-  color: #FEFEFE;
-}
-
-.searchBtn:hover {
-  background: #d730c9;
-  cursor: pointer;
 }
 
 .resumeTilesBoard {
@@ -301,4 +287,10 @@
 .resumeTile button:hover {
   background: #d730c9;
   cursor: pointer;
+}
+
+.paginationBar {
+  position: absolute;
+  right: 10%;
+  bottom: 10%;
 }

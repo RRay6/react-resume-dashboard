@@ -5,6 +5,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ResumeTile from './components/ResumeTile'
+import { mainLogo, magnifyGlassLogo } from './images/imageindex'
+import Pagination from './components/Pagination';
+import resumeData from './mock_data.json';
 
 Modal.setAppElement('#root');
 
@@ -19,12 +22,12 @@ function App() {
   }
 
   // For pagination
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = React.useState(1);
 
   // Resume data
-  const resumeDataView = useMemo(() => {
-    const firstPageIndex = (currentPage - 1) * 3;
-    const lastPageIndex = firstPageIndex + 3;
+  const resumeDataView = React.useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * 4;
+    const lastPageIndex = firstPageIndex + 4;
     return resumeData.slice(firstPageIndex, lastPageIndex);
   }, [currentPage]);
 
@@ -34,9 +37,8 @@ function App() {
 
       {/* Navigation bar with: title + resume upload link */}
       <nav>
-        <span className="title">
-          <img className="titleLogo" src={mainLogo}/> resume parser
-        </span>
+        <img className="titleLogo" src={mainLogo}/>
+        <span className="title">resume parser</span>
         <button className="uploadResume" onClick={() => setModalIsOpen(true)}> upload resume </button>
       </nav>
 
@@ -57,15 +59,15 @@ function App() {
 
       {/* Search bar div with: invisible input form + search button */}
       <div className="searchBar">
+        <img className="searchLogo" src={magnifyGlassLogo} />
         <input className="searchInput" placeholder="enter your search here" />
-        <button className="searchBtn" onClick={testClick}>search</button>
       </div>
 
       {/* Resume summary tiles */}
-        <div className="resumeTilesBoard">
+      <div className="resumeTilesBoard">
         {resumeDataView.map(item => {
           return (
-            <ResumeTile 
+            <ResumeTile
               testClick={testClick}
               name={item.name}
               birthday={item.birthday}
@@ -91,10 +93,10 @@ function App() {
       />
 
       <Pagination
-        className="pagination-bar"
+        className="paginationBar"
         currentPage={currentPage}
-        totalCount={resumeData.size}
-        pageSize={3}
+        totalCount={resumeData.length}
+        pageSize={4}
         onPageChange={page => setCurrentPage(page)}
       />
 
