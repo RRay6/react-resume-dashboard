@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ResumeTile from './components/ResumeTile'
+import {mainLogo, magnifyGlassLogo} from './images/imageindex'
 
 Modal.setAppElement('#root');
 
@@ -23,7 +24,9 @@ function App() {
 
       {/* Navigation bar with: title + resume upload link */}
       <nav>
-        <span className="title">resume parser</span>
+        <span className="title">
+          <img className="titleLogo" src={mainLogo}/> resume parser
+        </span>
         <button className="uploadResume" onClick={() => setModalIsOpen(true)}> upload resume </button>
       </nav>
 
