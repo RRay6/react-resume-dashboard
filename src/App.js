@@ -5,8 +5,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ResumeTile from './components/ResumeTile'
-import { useState } from "react";
+import { useState, useMemo} from "react";
 import Pagination from './components/Pagination';
+import resumeData from './mock_data.json';
+
 
 Modal.setAppElement('#root');
 
@@ -22,6 +24,14 @@ function App() {
 
   // For pagination
   const [currentPage, setCurrentPage] = useState(1);
+
+  // Resume data
+  const resumeDataView = useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * 3;
+    const lastPageIndex = firstPageIndex + 3;
+    return resumeData.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage]);
+
 
   return (
     <div className="app">
@@ -54,51 +64,22 @@ function App() {
       </div>
 
       {/* Resume summary tiles */}
-      <div className="resumeTilesBoard">
-        <ResumeTile 
-          testClick={testClick}
-          name="Tony Smith"
-          birthday="August 9, 17:00"
-          email="tonysmith@gmail.com"
-          phone="+1(000)111-2234"
-          location="Toronto, Canada"
-          skill1="JavaScript"
-          skill2="Python"
-          skill3="Sql"
-        />
-        <ResumeTile 
-          testClick={testClick}
-          name="Allison Wonderland"
-          birthday="August 9, 17:00"
-          email="allison.wonderland@gmail.com"
-          phone="+1(000)231-2313"
-          location="Topeka, Kansas"
-          skill1="Rust"
-          skill2="Javascript"
-          skill3="C++"
-        />
-        <ResumeTile 
-          testClick={testClick}
-          name="Tony Smith"
-          birthday="August 9, 17:00"
-          email="tonysmith@gmail.com"
-          phone="+1(000)111-2234"
-          location="Toronto, Canada"
-          skill1="JavaScript"
-          skill2="Python"
-          skill3="Sql"
-        />
-        <ResumeTile 
-          testClick={testClick}
-          name="Another Person"
-          birthday="August 9, 17:00"
-          email="another.person@gmail.com"
-          phone="+1(000)111-2234"
-          location="Springfield, Illinois"
-          skill1="Ruby"
-          skill2="Pascal"
-          skill3="Fortran"
-        />
+        <div className="resumeTilesBoard">
+        {resumeDataView.map(item => {
+          return (
+            <ResumeTile 
+              testClick={testClick}
+              name={item.name}
+              birthday={item.birthday}
+              email={item.email}
+              phone={item.phone}
+              location={item.location}
+              skill1={item.skill1}
+              skill2={item.skill2}
+              skill3={item.skill3}
+            />
+          );
+        })}
       </div>
 
 
@@ -114,7 +95,7 @@ function App() {
       <Pagination
         className="pagination-bar"
         currentPage={currentPage}
-        totalCount={10}
+        totalCount={resumeData.size}
         pageSize={3}
         onPageChange={page => setCurrentPage(page)}
       />
