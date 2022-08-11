@@ -5,6 +5,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ResumeTile from './components/ResumeTile'
+import { useState } from "react";
+import Pagination from './components/Pagination';
 
 Modal.setAppElement('#root');
 
@@ -17,6 +19,9 @@ function App() {
     e.preventDefault();
     toast("Wow so easy !");
   }
+
+  // For pagination
+  const [currentPage, setCurrentPage] = useState(1);
 
   return (
     <div className="app">
@@ -50,8 +55,21 @@ function App() {
 
       {/* Resume summary tiles */}
       <div className="resumeTilesBoard">
+        <ResumeTile 
+          testClick={testClick}
+          name="Tony Smith"
+          birthday="August 9, 17:00"
+          email="tonysmith@gmail.com"
+          phone="+1(000)111-2234"
+          location="Toronto, Canada"
+          skill1="JavaScript"
+          skill2="Python"
+          skill3="Sql"
+        />
+        <ResumeTile testClick={testClick}/>
         <ResumeTile testClick={testClick}/>
       </div>
+
 
       <ToastContainer
         position="bottom-right"
@@ -61,6 +79,15 @@ function App() {
         rtl={false}
         transition={Slide}
       />
+
+      <Pagination
+        className="pagination-bar"
+        currentPage={currentPage}
+        totalCount={10}
+        pageSize={3}
+        onPageChange={page => setCurrentPage(page)}
+      />
+
     </div>
   );
 }
