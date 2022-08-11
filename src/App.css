@@ -37,21 +37,25 @@
 
 .uploadResume {
   position: absolute;
-  width: 186px;
+  width: 200px;
   height: 36px;
   left: 71%;
   top: 14px;
+  background: #726DA8;
+  border: none;
+  border-radius: 15px;
 
   /* Text */
+  font-family: 'Poppins';
   font-weight: 600;
-  font-size: 24px;
-  line-height: 36px;
+  font-size: 20px;
+  line-height: 22px;
   text-transform: lowercase;
-  color: #594157;
+  color: #FEFEFE;
 }
 
 .uploadResume:hover {
-  color: #d730c9;
+  background: #d730c9;
   cursor: pointer;
 }
 

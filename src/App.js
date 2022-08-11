@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 import { ToastContainer, toast } from 'react-toastify';
 import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ResumeTile from './components/ResumeTile'
 
 Modal.setAppElement('#root');
 
@@ -23,7 +24,7 @@ function App() {
       {/* Navigation bar with: title + resume upload link */}
       <nav>
         <span className="title">resume parser</span>
-        <span className="uploadResume" onClick={() => setModalIsOpen(true)}> upload resume </span>
+        <button className="uploadResume" onClick={() => setModalIsOpen(true)}> upload resume </button>
       </nav>
 
       {/* Popup overlay for the resume submission UI */}
@@ -49,22 +50,7 @@ function App() {
 
       {/* Resume summary tiles */}
       <div className="resumeTilesBoard">
-        <div className="resumeTile">
-          <h1>Tony Smith</h1>
-          <div>
-            August 9, 17:00 <br />
-            tonysmith@gmail.com <br />
-            +1(000)111-2234 <br />
-            Toronto, Canada <br />
-          </div>
-          <h2>Skills</h2>
-          <div className="resumeSkillsContainer">
-            <div className="resumeSkill">JavaScript</div>
-            <div className="resumeSkill">Python</div>
-            <div className="resumeSkill">Sql</div>
-          </div>
-          <button onClick={testClick}>View Details</button>
-        </div>
+        <ResumeTile testClick={testClick}/>
       </div>
 
       <ToastContainer
