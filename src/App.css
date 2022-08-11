@@ -293,3 +293,8 @@
   text-transform: lowercase;
   color: #FEFEFE;
 }
+
+.resumeTile button:hover {
+  background: #d730c9;
+  cursor: pointer;
+}
