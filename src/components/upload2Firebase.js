@@ -1,7 +1,7 @@
-import storage from "./config/firebaseConfig.js";
+import { storage } from "./config/firebaseConfig.js";
 import {getDownloadURL, ref, uploadBytesResumable} from "firebase/storage";
 import React, { useState } from "react";
-import filelogo from './images/file-upload.jpg';
+
 function Upload2firebase() {
     const [file, setFile] = useState("");
  
@@ -46,21 +46,17 @@ function Upload2firebase() {
  
     return (
         <div>
-            <title> Tech | Apply</title>
-            <h1 className="page-header"> Apply! </h1>
-            
             <body className='body-page'><div className="dont-move">
             <div class="file-upload-icon-container">
-            <img class="file-upload-icon" src={filelogo}/>
-  
-            <input className="file-choose" type="file" onChange={handleChange} accept=".pdf" />
-            <button onClick={handleUpload} className="upload">Upload</button>
+            <img class="file-upload-icon" />
+            <input className="uploadChooseFile" id="fileInputId" type={"file"} onChange={handleChange} />
+            <label htmlFor="fileInputId">Choose File</label>
+            <button onClick={handleUpload} className="uploadSubmitBtn">Upload</button>
             <p className="percent">{percent} % done</p>
             </div>
             </div>
             </body>
 
-            <footer className="footer"> <div className="footer-txt">Tech Company</div> </footer>
             
         </div>
     );
