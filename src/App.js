@@ -5,6 +5,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ResumeTile from './components/ResumeTile'
+
+import Upload2firebase from './components/upload2Firebase';
+
 import { mainLogo, magnifyGlassLogo } from './images/imageindex'
 import Pagination from './components/Pagination';
 import resumeData from './mock_data.json';
@@ -50,10 +53,9 @@ function App() {
         onRequestClose={() => setModalIsOpen(false)}
       >
         {/* Label is CSS stylable button for a hidden file input because file input can't be styled */}
-        <input className="uploadChooseFile" id="fileInputId" type={"file"} onChange={testClick} />
-        <label htmlFor="fileInputId">Choose File</label>
-
-        <button className="uploadSubmitBtn" onClick={testClick}>Upload</button>
+        
+        
+        <Upload2firebase/>
         <button className="uploadCloseBtn" onClick={() => setModalIsOpen(false)}>X</button>
       </Modal>
 
