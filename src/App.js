@@ -5,7 +5,13 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ResumeTile from './components/ResumeTile'
+
 import Upload2firebase from './components/upload2Firebase';
+
+import { mainLogo, magnifyGlassLogo } from './images/imageindex'
+import Pagination from './components/Pagination';
+import resumeData from './mock_data.json';
+
 Modal.setAppElement('#root');
 
 function App() {
@@ -18,11 +24,23 @@ function App() {
     toast("Wow so easy !");
   }
 
+  // For pagination
+  const [currentPage, setCurrentPage] = React.useState(1);
+
+  // Resume data
+  const resumeDataView = React.useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * 4;
+    const lastPageIndex = firstPageIndex + 4;
+    return resumeData.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage]);
+
+
   return (
     <div className="app">
 
       {/* Navigation bar with: title + resume upload link */}
       <nav>
+        <img className="titleLogo" src={mainLogo}/>
         <span className="title">resume parser</span>
         <button className="uploadResume" onClick={() => setModalIsOpen(true)}> upload resume </button>
       </nav>
@@ -43,14 +61,29 @@ function App() {
 
       {/* Search bar div with: invisible input form + search button */}
       <div className="searchBar">
+        <img className="searchLogo" src={magnifyGlassLogo} />
         <input className="searchInput" placeholder="enter your search here" />
-        <button className="searchBtn" onClick={testClick}>search</button>
       </div>
 
       {/* Resume summary tiles */}
       <div className="resumeTilesBoard">
-        <ResumeTile testClick={testClick}/>
+        {resumeDataView.map(item => {
+          return (
+            <ResumeTile
+              testClick={testClick}
+              name={item.name}
+              birthday={item.birthday}
+              email={item.email}
+              phone={item.phone}
+              location={item.location}
+              skill1={item.skill1}
+              skill2={item.skill2}
+              skill3={item.skill3}
+            />
+          );
+        })}
       </div>
+
 
       <ToastContainer
         position="bottom-right"
@@ -60,6 +93,15 @@ function App() {
         rtl={false}
         transition={Slide}
       />
+
+      <Pagination
+        className="paginationBar"
+        currentPage={currentPage}
+        totalCount={resumeData.length}
+        pageSize={4}
+        onPageChange={page => setCurrentPage(page)}
+      />
+
     </div>
   );
 }
