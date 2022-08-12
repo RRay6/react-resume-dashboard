@@ -5,9 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ResumeTile from './components/ResumeTile'
-
 import Upload2firebase from './components/upload2Firebase';
-
 import { mainLogo, magnifyGlassLogo } from './images/imageindex'
 import Pagination from './components/Pagination';
 import resumeData from './mock_data.json';
@@ -40,7 +38,7 @@ function App() {
 
       {/* Navigation bar with: title + resume upload link */}
       <nav>
-        <img className="titleLogo" src={mainLogo}/>
+        <img className="titleLogo" src={mainLogo} />
         <span className="title">resume parser</span>
         <button className="uploadResume" onClick={() => setModalIsOpen(true)}> upload resume </button>
       </nav>
@@ -52,10 +50,8 @@ function App() {
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
       >
-        {/* Label is CSS stylable button for a hidden file input because file input can't be styled */}
-        
-        
-        <Upload2firebase/>
+        {/* Upload2firebase component is the resume submission UI */}
+        <Upload2firebase />
         <button className="uploadCloseBtn" onClick={() => setModalIsOpen(false)}>X</button>
       </Modal>
 
@@ -63,9 +59,25 @@ function App() {
       <div className="searchBar">
         <img className="searchLogo" src={magnifyGlassLogo} />
         <input className="searchInput" placeholder="enter your search here" />
+        <span className="searchAdvanced"><strong><u>advanced filter</u></strong></span>
       </div>
 
+      <div className="commonWordsSection">
+        <span>or select from the most common keywords found:</span>
+        <div className="commonWordsContainer">
+          <div className="resumeSkill">Javascript</div>
+          <div className="resumeSkill">Python</div>
+          <div className="resumeSkill">SQL</div>
+        </div>
+      </div>
+
+
       {/* Resume summary tiles */}
+      <div className="viewUploaded">
+        <span>recently uploaded</span>
+        <span className="viewAll"><strong><u>view all</u></strong></span>
+      </div>
+
       <div className="resumeTilesBoard">
         {resumeDataView.map(item => {
           return (

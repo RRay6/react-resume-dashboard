@@ -1,4 +1,5 @@
 import React from 'react'
+import { resumeAddress, resumeDate, resumeEmail, resumeNumber, resumePhone } from '../images/imageindex'
 
 const ResumeTile = props => {
   const {
@@ -15,21 +16,21 @@ const ResumeTile = props => {
 
   return (
     <div className="resumeTile">
-    <h1>{name}</h1>
-    <div>
-      {birthday} <br />
-      {email} <br />
-      {phone} <br />
-      {location} <br />
+      <h1>{name}</h1>
+      <div>
+        <img src={resumeDate}/> {birthday} <br />
+        <img src={resumeEmail}/> {email} <br />
+        <img src={resumePhone}/> {phone} <br />
+        <img src={resumeAddress}/> {location} <br />
+      </div>
+      <h2>Skills</h2>
+      <div className="resumeSkillsContainer">
+        <div className="resumeSkill">{skill1}</div>
+        <div className="resumeSkill">{skill2}</div>
+        <div className="resumeSkill">{skill3}</div>
+      </div>
+      <button onClick={testClick}>View Details</button>
     </div>
-    <h2>Skills</h2>
-    <div className="resumeSkillsContainer">
-      <div className="resumeSkill">{skill1}</div>
-      <div className="resumeSkill">{skill2}</div>
-      <div className="resumeSkill">{skill3}</div>
-    </div>
-    <button onClick={testClick}>View Details</button>
-  </div>
   )
 }
 
