@@ -44,22 +44,28 @@ function App() {
     const firstPageIndex = (currentPage - 1) * 4;
     const lastPageIndex = firstPageIndex + 4;
     let query = searchText.toLowerCase();
-    let filterResumeData = resumeData.filter((person) => {
-      if (searchText === "") {
-        //if query is empty
-        return person;
-      } else if (
-        person.name.toLowerCase().includes(query) ||
-        person.email.toLowerCase().includes(query) ||
-        person.location.toLowerCase().includes(query) ||
-        person.skill1.toLowerCase().includes(query) ||
-        person.skill2.toLowerCase().includes(query) ||
-        person.skill3.toLowerCase().includes(query)
-      ) {
-        //returns filtered array
-        return person;
-      }
-    });
+
+    let filterResumeData = Array.isArray(data)
+      ? data.filter((person) => {
+          // console.log(person.pdf);
+          // console.log(person.pdf.includes(query));
+          if (searchText === "") {
+            //if query is empty
+            return person;
+          } else if (
+            person.name.toLowerCase().includes(query) ||
+            person.email.toLowerCase().includes(query) ||
+            person.location.toLowerCase().includes(query)
+            // person.pdf.includes(query)
+            // person.skill1.toLowerCase().includes(query) ||
+            // person.skill2.toLowerCase().includes(query) ||
+            // person.skill3.toLowerCase().includes(query)
+          ) {
+            //returns filtered array
+            return person;
+          }
+        })
+      : [];
     setResumeDataSize(filterResumeData.length);
     return filterResumeData.slice(firstPageIndex, lastPageIndex);
   }, [currentPage, searchText]); // Change resume tiles when currentPage or searchText changes.
@@ -173,17 +179,19 @@ function App() {
               email={item.email}
               phone={item.phoneNum}
               location={item.location}
-              skill1={item.skill1}
-              skill2={item.skill2}
-              skill3={item.skill3}
+              pdf={item.pdf}
+              searchTerm={searchText}
+              // skill2={item.skill2}
+              // skill3={item.skill3}
+              // pdf={item.pdf}
             />
           );
         })}
       </div>
 
-      {console.log("LOG START")}
+      {/* {console.log("LOG START")}
       {console.log(data)}
-      {console.log("LOG END")}
+      {console.log("LOG END")} */}
 
       {/* <button onClick={listItem} className="uploadSubmitBtn">
         TEST

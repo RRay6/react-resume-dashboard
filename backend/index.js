@@ -38,9 +38,9 @@ app.post("/upload", (req, res) => {
   });
 });
 
-app.post("/test2", (req, res) => {
-  console.log("Hellooo2");
-  res.send("This is working");
+app.post("/tojson", (req, res) => {
+  console.log(req, res);
+  fs.writeFileSync("pdf.json", JSON.stringify(req));
 });
 
 let word = [];
@@ -97,7 +97,7 @@ app.get("/converter", cors(), async (req, res) => {
 
   //arr2 = 'C:/Users/Ryanka Ray/Documents/Headstarters/new_Project_1/'
 
-  fs.writeFileSync("pdf.json", JSON.stringify(words));
+  //fs.writeFileSync("pdf.json", JSON.stringify(words));
   res.send(JSON.stringify(words));
 });
 

@@ -54,12 +54,6 @@ function Upload2firebase({ closeModal }) {
         axios
           .get("//localhost:8000/converter")
           .then((response) => {
-            //console.log(response.data);
-            console.log("Test 3");
-            //console.log(response.data);
-            //console.log(pdf);
-            //setPDF(response.data);
-
             let pdf = response.data;
 
             setFile("");
@@ -80,32 +74,22 @@ function Upload2firebase({ closeModal }) {
             setEmail("");
             setPhoneNum("");
             setLocation("");
-            // setPDF([]);
 
-            //write2db();
-            // setTimeout(() => {
-            //   console.log(response.data);
-            //   console.log(pdf);
-            //   write2db();
-            //   console.log("Test 3 INSIDE");
-            // }, 5000);
-            console.log("Test 3 END");
-
-            toast.success("Upload 1 Success");
+            toast.success("Upload Success");
             //onSuccess(response.data)
           })
           .catch((e) => {
             //console.log('Error', e);
-            toast.error("Upload 1 Error");
+            toast.error("Upload Error");
           });
 
         console.log("Test 4");
-        toast.success("Upload 2 Success");
+        // toast.success("Upload 2 Success");
         //onSuccess(response.data)
       })
       .catch((e) => {
         //console.log('Error', e);
-        toast.error("Upload 2 Error");
+        // toast.error("Upload 2 Error");
       });
   };
 
