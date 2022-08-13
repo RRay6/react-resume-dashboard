@@ -22,6 +22,9 @@ function App() {
     toast.success("Wow so easy !")
   }
 
+  // Add popular searches from word cloud to the search bar
+
+
   // Search Bar (captures user input)
   const [searchText, setSearchText] = React.useState("");
 
@@ -81,16 +84,16 @@ function App() {
       {/* Search bar div with: invisible input form + search button */}
       <div className="searchBar">
         <img className="searchLogo" src={magnifyGlassLogo} />
-        <input className="searchInput" onChange={(e) => setSearchText(e.target.value)} placeholder="enter your search here" />
+        <input className="searchInput" value={searchText} onChange={(e) => setSearchText(e.target.value)} placeholder="enter your search here" />
         <span className="searchAdvanced"><strong><u>advanced filter</u></strong></span>
       </div>
 
       <div className="commonWordsSection">
         <span>or select from the most common keywords found:</span>
         <div className="commonWordsContainer">
-          <div className="resumeSkill">Javascript</div>
-          <div className="resumeSkill">Python</div>
-          <div className="resumeSkill">SQL</div>
+          <div className="resumeSkill" onClick={() => setSearchText("Javascript")}>Javascript</div>
+          <div className="resumeSkill" onClick={() => setSearchText("Python")}>Python</div>
+          <div className="resumeSkill" onClick={() => setSearchText("SQL")}>SQL</div>
         </div>
       </div>
 
