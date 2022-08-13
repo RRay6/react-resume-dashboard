@@ -5,6 +5,7 @@ import resumeDate from './resumeDate.svg'
 import resumeEmail from './resumeEmail.svg'
 import resumeNumber from './resumeNumber.svg'
 import resumePhone from './resumePhone.svg'
+import closeIcon from './closeIcon.svg'
 
 export {
   mainLogo,
@@ -13,5 +14,6 @@ export {
   resumeDate,
   resumeEmail,
   resumeNumber,
-  resumePhone
+  resumePhone,
+  closeIcon
 }

@@ -18,8 +18,8 @@ function App() {
 
   // onClick handler for testing
   const testClick = (e) => {
-    e.preventDefault();
-    toast("Wow so easy !");
+    e.preventDefault()
+    toast("Wow so easy !")
   }
 
   // For pagination
@@ -51,8 +51,7 @@ function App() {
         onRequestClose={() => setModalIsOpen(false)}
       >
         {/* Upload2firebase component is the resume submission UI */}
-        <Upload2firebase />
-        <button className="uploadCloseBtn" onClick={() => setModalIsOpen(false)}>X</button>
+        <Upload2firebase closeModal={() => setModalIsOpen(false)}/>
       </Modal>
 
       {/* Search bar div with: invisible input form + search button */}

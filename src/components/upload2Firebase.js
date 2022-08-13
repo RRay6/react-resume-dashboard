@@ -1,45 +1,45 @@
 import { storage } from "./config/firebaseConfig.js";
-import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-import React, { useState } from "react";
+import { ref, uploadBytesResumable } from "firebase/storage";
+import React, { useState, useCallback } from "react";
+import { toast } from 'react-toastify';
+import { useDropzone } from "react-dropzone";
+import UploadPrompt from "./UploadPrompt.js"
+import { closeIcon } from "../images/imageindex"
 
-function Upload2firebase() {
-    const [file, setFile] = useState("");
-
-    // progress
-    const [percent, setPercent] = useState(0);
-
-    // Handle file upload event and update state
-    function handleChange(event) {
-        setFile(event.target.files[0]);
-    }
+function Upload2firebase({ closeModal }) {
+    const [file, setFile] = useState("")
 
     const handleUpload = () => {
         if (!file) {
-            alert("Please upload an file first!");
+            alert("Please upload an file first!")
+            return
         }
+        toast("Upload Success!")
 
-        const storageRef = ref(storage, `/resumes/${file.name}`);
-
-        // progress can be paused and resumed. It also exposes progress updates.
         // Receives the storage reference and the file to upload.
-        const uploadTask = uploadBytesResumable(storageRef, file);
+        // Only uploads one file currently
+        const storageRef = ref(storage, `/resumes/${file[0].name}`)
+        const uploadTask = uploadBytesResumable(storageRef, file[0])
 
-        uploadTask.on(
+        setFile("")
+    }
 
-            () => {
-                // download url
-                getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-                    console.log(url);
-                });
-            }
-        );
-    };
+    // when file is selected, set file state to that of the selected files
+    const onDropAccepted = useCallback((acceptedFiles) => {
+        setFile(acceptedFiles)
+    })
+
+    const { getRootProps, getInputProps, acceptedFiles } = useDropzone({ onDropAccepted })
 
     return (
         <div>
-            <input className="uploadChooseFile" id="fileInputId" type={"file"} onChange={handleChange} />
-            <label htmlFor="fileInputId">Choose File</label>
+            {/* dropzone component used for drag and drop files, acceptedFiles is [] of selected files */}
+            <div {...getRootProps({ className: "dropzone" })}>
+                <input className="input-zone" {...getInputProps()} />
+                <UploadPrompt file={file} />
+            </div>
             <button onClick={handleUpload} className="uploadSubmitBtn">Upload</button>
+            <button className="uploadCloseBtn" onClick={closeModal}><img src={closeIcon}></img></button>
         </div>
     );
 }

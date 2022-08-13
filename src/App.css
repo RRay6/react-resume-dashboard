@@ -67,8 +67,8 @@
 
 .uploadModal {
   position: fixed;
-  width: 300px;
-  height: 300px;
+  width: 780px;
+  height: 600px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -85,24 +85,19 @@
   background: rgba(0, 0, 0, 0.4);
 }
 
-/* hide the original file input */
-.uploadChooseFile {
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
+.uploadPromptDefault {
   position: absolute;
-  z-index: -1;
-}
-
-/* selects the first label element placed after .uploadChooseFile */
-.uploadChooseFile+label {
-  position: absolute;
-  top: 25%;
-  left: 27%;
-  background: #726DA8;
-  border: none;
-  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 580px;
+  height: 162px;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: none;
+  border: 5px dashed #7D8CC4;
+  border-radius: 20px;
 
   /* Text */
   padding: 20px;
@@ -110,13 +105,43 @@
   font-weight: 800;
   font-size: 20px;
   line-height: 22px;
-  letter-spacing: -1px;
   text-transform: lowercase;
-  color: #FEFEFE;
+  color: #594157;
 }
 
-.uploadChooseFile+label:hover {
-  background: #d730c9;
+.uploadPromptDefault:hover {
+  border: 5px dashed #d730c9;
+  color: #d730c9;
+  cursor: pointer;
+}
+
+.uploadPromptSelected {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 580px;
+  height: 162px;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: none;
+  border: 5px solid #594157;
+  border-radius: 20px;
+
+  /* Text */
+  padding: 20px;
+  font-family: 'Poppins';
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 22px;
+  text-transform: lowercase;
+  color: #594157;
+}
+
+.uploadPromptSelected:hover {
+  border: 5px solid #d730c9;
+  color: #d730c9;
   cursor: pointer;
 }
 
