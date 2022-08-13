@@ -19,7 +19,7 @@ function App() {
   // onClick handler for testing
   const testClick = (e) => {
     e.preventDefault()
-    toast("Wow so easy !")
+    toast.success("Wow so easy !")
   }
 
   // For pagination
@@ -73,8 +73,8 @@ function App() {
 
       {/* Resume summary tiles */}
       <div className="viewUploaded">
-        <span>recently uploaded</span>
-        <span className="viewAll"><strong><u>view all</u></strong></span>
+        <span>all applicants</span>
+        <span className="viewAll"><strong><u>switch to a list view</u></strong></span>
       </div>
 
       <div className="resumeTilesBoard">
@@ -97,8 +97,7 @@ function App() {
 
 
       <ToastContainer
-        position="bottom-right"
-        autoClose={500}
+        autoClose={2000}
         hideProgressBar={false}
         newestOnTop={false}
         rtl={false}

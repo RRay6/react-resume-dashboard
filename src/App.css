@@ -61,18 +61,18 @@
 }
 
 .uploadResume:hover {
-  background: #d730c9;
+  background: #7D8CC4;
   cursor: pointer;
 }
 
 .uploadModal {
-  position: fixed;
+  position: absolute;
   width: 780px;
   height: 600px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: white;
+  background: #FEFEFE;
   outline: none;
 }
 
@@ -90,7 +90,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 580px;
+  width: 530px;
   height: 162px;
   top: 30%;
   left: 50%;
@@ -110,8 +110,8 @@
 }
 
 .uploadPromptDefault:hover {
-  border: 5px dashed #d730c9;
-  color: #d730c9;
+  border: 5px dashed #7D8CC4;
+  color: #7D8CC4;
   cursor: pointer;
 }
 
@@ -120,7 +120,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 580px;
+  width: 530px;
   height: 162px;
   top: 30%;
   left: 50%;
@@ -140,16 +140,54 @@
 }
 
 .uploadPromptSelected:hover {
-  border: 5px solid #d730c9;
-  color: #d730c9;
+  border: 5px solid #7D8CC4;
+  color: #7D8CC4;
   cursor: pointer;
+}
+
+.uploadNameContainer {
+  position: absolute;
+  width: 580px;
+  height: 87px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  top: 62%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Poppins';
+}
+
+.uploadNameContainer span {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.uploadNameForm {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 580px;
+  height: 54px;
+  background: #FEFEFE;
+  border: 2px solid #7D8CC4;
+  border-radius: 10px;
+
+  text-align: center;
+  font-family: 'Poppins';
+  font-size: 14px;
 }
 
 .uploadSubmitBtn {
   position: absolute;
   width: 124px;
   height: 50px;
-  top: 65%;
+  top: 83%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: #726DA8;
@@ -167,7 +205,7 @@
 }
 
 .uploadSubmitBtn:hover {
-  background: #d730c9;
+  background: #7D8CC4;
   cursor: pointer;
 }
 
@@ -184,7 +222,7 @@
 }
 
 .uploadCloseBtn:hover {
-  color: #d730c9;
+  color: #7D8CC4;
   cursor: pointer;
 }
 
@@ -255,9 +293,10 @@
   position: absolute;
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: 78%;
   top: 32%;
-  left: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: #2B2B2B;
   letter-spacing: -1px;
 }
@@ -354,7 +393,7 @@
 }
 
 .resumeTile button:hover {
-  background: #d730c9;
+  background: #7D8CC4;
   cursor: pointer;
 }
 

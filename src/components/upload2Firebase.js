@@ -14,7 +14,7 @@ function Upload2firebase({ closeModal }) {
             alert("Please upload an file first!")
             return
         }
-        toast("Upload Success!")
+        toast.success("Upload Success!")
 
         // Receives the storage reference and the file to upload.
         // Only uploads one file currently
@@ -38,7 +38,13 @@ function Upload2firebase({ closeModal }) {
                 <input className="input-zone" {...getInputProps()} />
                 <UploadPrompt file={file} />
             </div>
-            <button onClick={handleUpload} className="uploadSubmitBtn">Upload</button>
+
+            <div className="uploadNameContainer">
+                <span>Name</span>
+                <input className="uploadNameForm" input="text" placeholder="enter name of applicant"></input>
+            </div>
+
+            <button onClick={handleUpload} className="uploadSubmitBtn">Submit</button>
             <button className="uploadCloseBtn" onClick={closeModal}><img src={closeIcon}></img></button>
         </div>
     );
