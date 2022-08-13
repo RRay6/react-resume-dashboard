@@ -289,6 +289,10 @@
   gap: 3%;
 }
 
+.commonWordsContainer .resumeSkill:hover {
+  cursor: pointer;
+}
+
 .viewUploaded {
   position: absolute;
   display: flex;
