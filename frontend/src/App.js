@@ -68,7 +68,7 @@ function App() {
       : [];
     setResumeDataSize(filterResumeData.length);
     return filterResumeData.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage, searchText]); // Change resume tiles when currentPage or searchText changes.
+  }, [data, currentPage, searchText]); // Change resume tiles when currentPage or searchText changes.
 
   // List All Files
   // const listItem = () => {
