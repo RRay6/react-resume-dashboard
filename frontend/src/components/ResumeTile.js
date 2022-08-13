@@ -31,18 +31,20 @@ const ResumeTile = (props) => {
         <img src={resumePhone} /> {phone} <br />
         <img src={resumeAddress} /> {location} <br />
       </div>
-      <h2>Skills</h2>
+      <h2>Matched Keywords</h2>
       {/* <div className="resumeSkillsContainer">
         <div className="resumeSkill">{skill1}</div>
         <div className="resumeSkill">{skill2}</div>
         <div className="resumeSkill">{skill3}</div>
       </div> */}
 
-      {pdf.map((item) => {
+      {pdf.map((item, index) => {
         if (
           searchTerm !== "" &&
-          item.toLowerCase().includes(searchTerm.toLowerCase())
+          item.toLowerCase().includes(searchTerm.toLowerCase()) &&
+          index < 3
         ) {
+          // console.log(item.toLowerCase());
           return (
             <div className="resumeSkillsContainer">
               <div className="resumeSkill">{item}</div>
