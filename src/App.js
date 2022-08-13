@@ -22,15 +22,32 @@ function App() {
     toast.success("Wow so easy !")
   }
 
-  // For pagination
+  // Search Bar (captures user input)
+  const [searchText, setSearchText] = React.useState("");
+
+  // Current number of resume tiles filtered by search.
+  const [resumeDataSize, setResumeDataSize] = React.useState(resumeData.length);
+
+  // Pagination (captures user's page number)
   const [currentPage, setCurrentPage] = React.useState(1);
 
-  // Resume data
+  // The current view of the resume data:
+  // This is hard coded to show 4 tiles on screen.
   const resumeDataView = React.useMemo(() => {
     const firstPageIndex = (currentPage - 1) * 4;
     const lastPageIndex = firstPageIndex + 4;
-    return resumeData.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage]);
+    let filterResumeData = resumeData.filter(person => {
+      if (searchText === "") {
+        //if query is empty
+        return person;
+      } else if (person.name.toLowerCase().includes(searchText.toLowerCase())) {
+        //returns filtered array
+        return person;
+      }})
+    setResumeDataSize(filterResumeData.length);
+    return filterResumeData.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage, searchText]); // Change resume tiles when currentPage or searchText changes.
+
 
 
   return (
@@ -57,7 +74,7 @@ function App() {
       {/* Search bar div with: invisible input form + search button */}
       <div className="searchBar">
         <img className="searchLogo" src={magnifyGlassLogo} />
-        <input className="searchInput" placeholder="enter your search here" />
+        <input className="searchInput" onChange={(e) => setSearchText(e.target.value)} placeholder="enter your search here" />
         <span className="searchAdvanced"><strong><u>advanced filter</u></strong></span>
       </div>
 
@@ -107,7 +124,7 @@ function App() {
       <Pagination
         className="paginationBar"
         currentPage={currentPage}
-        totalCount={resumeData.length}
+        totalCount={resumeDataSize}
         pageSize={4}
         onPageChange={page => setCurrentPage(page)}
       />
