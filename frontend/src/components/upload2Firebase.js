@@ -173,9 +173,9 @@ function Upload2firebase({ closeModal }) {
         ></input>
       </div>
       <div className="uploadPhoneNumberContainer">
-        <span>Phone Nu</span>
+        <span>Phone Number</span>
         <input
-          className="uploadPhoneNumberForm"
+          className="uploadNameForm"
           input="text"
           placeholder="enter phone number of applicant"
           onChange={(e) => setPhoneNum(e.target.value)}
@@ -184,7 +184,7 @@ function Upload2firebase({ closeModal }) {
       <div className="uploadLocationContainer">
         <span>Location</span>
         <input
-          className="uploadLocationForm"
+          className="uploadNameForm"
           input="text"
           placeholder="enter location of applicant"
           onChange={(e) => setLocation(e.target.value)}

@@ -73,7 +73,7 @@
 .uploadModal {
   position: absolute;
   width: 780px;
-  height: 600px;
+  height: 700px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -97,7 +97,7 @@
   align-items: center;
   width: 530px;
   height: 162px;
-  top: 30%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: none;
@@ -127,7 +127,7 @@
   align-items: center;
   width: 530px;
   height: 162px;
-  top: 30%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: none;
@@ -153,19 +153,19 @@
 .uploadNameContainer {
   position: absolute;
   width: 580px;
-  height: 87px;
+  height: 60px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  top: 62%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: 'Poppins';
 }
 
 .uploadNameContainer span {
-  font-size: 20px;
+  font-size: 15px;
   font-style: normal;
   font-weight: 500;
 }
@@ -173,19 +173,19 @@
 .uploadEmailContainer {
   position: absolute;
   width: 580px;
-  height: 87px;
+  height: 60px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  top: 75%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: 'Poppins';
 }
 
 .uploadEmailContainer span {
-  font-size: 20px;
+  font-size: 15px;
   font-style: normal;
   font-weight: 500;
 }
@@ -208,11 +208,70 @@
   font-size: 14px;
 }
 
+.uploadBirthdayContainer {
+  position: absolute;
+  width: 580px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Poppins';
+}
+
+.uploadBirthdayContainer span {
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.uploadPhoneNumberContainer {
+  position: absolute;
+  width: 580px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Poppins';
+}
+
+.uploadPhoneNumberContainer span {
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.uploadLocationContainer {
+  position: absolute;
+  width: 580px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Poppins';
+}
+
+.uploadLocationContainer span {
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+}
 .uploadSubmitBtn {
   position: absolute;
   width: 124px;
   height: 50px;
-  top: 83%;
+  top: 95%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: #726da8;
