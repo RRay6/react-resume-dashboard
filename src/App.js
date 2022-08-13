@@ -8,6 +8,7 @@ import ResumeTile from './components/ResumeTile'
 import Upload2firebase from './components/upload2Firebase';
 import { mainLogo, magnifyGlassLogo } from './images/imageindex'
 import Pagination from './components/Pagination';
+import CommonWords from './components/CommonWords';
 import resumeData from './mock_data.json';
 
 Modal.setAppElement('#root');
@@ -91,9 +92,9 @@ function App() {
       <div className="commonWordsSection">
         <span>or select from the most common keywords found:</span>
         <div className="commonWordsContainer">
-          <div className="resumeSkill" onClick={() => setSearchText("Javascript")}>Javascript</div>
-          <div className="resumeSkill" onClick={() => setSearchText("Python")}>Python</div>
-          <div className="resumeSkill" onClick={() => setSearchText("SQL")}>SQL</div>
+          <CommonWords skill="Javascript" searchText={searchText} setSearchText={setSearchText} />
+          <CommonWords skill="Python" searchText={searchText} setSearchText={setSearchText} />
+          <CommonWords skill="SQL" searchText={searchText} setSearchText={setSearchText} />
         </div>
       </div>
 
