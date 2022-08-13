@@ -36,11 +36,18 @@ function App() {
   const resumeDataView = React.useMemo(() => {
     const firstPageIndex = (currentPage - 1) * 4;
     const lastPageIndex = firstPageIndex + 4;
+    let query = searchText.toLowerCase()
     let filterResumeData = resumeData.filter(person => {
       if (searchText === "") {
         //if query is empty
         return person;
-      } else if (person.name.toLowerCase().includes(searchText.toLowerCase())) {
+      } else if (person.name.toLowerCase().includes(query)
+        ||       person.email.toLowerCase().includes(query)
+        ||       person.location.toLowerCase().includes(query)
+        ||       person.skill1.toLowerCase().includes(query)
+        ||       person.skill2.toLowerCase().includes(query)
+        ||       person.skill3.toLowerCase().includes(query)
+      ) {
         //returns filtered array
         return person;
       }})
