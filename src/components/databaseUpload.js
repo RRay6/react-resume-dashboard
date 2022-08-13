@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { db } from './config/firebaseConfig';
 import { set, ref, onValue, remove, update } from 'firebase/database';
 import { uid } from 'uid';
+import Upload2firebase from './upload2Firebase';
 
 // Parsed file keywords will be written to a file
 // New file will then be written firebase Realtime database
@@ -52,6 +53,10 @@ const FirebaseDB = () => {
   // names.maps maps info according to name, will probably be on
   // on resumeTile.js file
   return (
+    <div className="uploadNameContainer">
+    <span>Name</span>
+    <input className="uploadNameForm" input="text" placeholder="enter name of applicant"></input>
+    
     <table>
       {names.map((name) => (
         <>
@@ -63,8 +68,9 @@ const FirebaseDB = () => {
           <td>{name.skills} </td>
         </>
       ))}
-      ;
+      
     </table>
+    </div>
   );
 };
 
