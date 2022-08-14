@@ -37,21 +37,23 @@ const ResumeTile = (props) => {
         <div className="resumeSkill">{skill2}</div>
         <div className="resumeSkill">{skill3}</div>
       </div> */}
-
+    <div className="resumeSkillsContainer">
       {pdf.map((item, index) => {
         if (
           searchTerm !== "" &&
-          item.toLowerCase().includes(searchTerm.toLowerCase()) &&
-          index < 3
+          `${item}`.toLowerCase().includes(`${searchTerm}`.toLowerCase())
+          
         ) {
           // console.log(item.toLowerCase());
+
           return (
-            <div className="resumeSkillsContainer">
+            
               <div className="resumeSkill">{item}</div>
-            </div>
+
           );
         }
-      })}
+      })}            
+    </div>
       <button onClick={testClick}>View Details</button>
     </div>
   );

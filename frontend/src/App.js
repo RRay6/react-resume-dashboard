@@ -52,11 +52,12 @@ function App() {
           if (searchText === "") {
             //if query is empty
             return person;
-          } else if (
+          } else if ( 
             person.name.toLowerCase().includes(query) ||
             person.email.toLowerCase().includes(query) ||
-            person.location.toLowerCase().includes(query)
-            // person.pdf.includes(query)
+            person.location.toLowerCase().includes(query) ||
+            (person.pdf.some(v => query.includes(v)))
+            
             // person.skill1.toLowerCase().includes(query) ||
             // person.skill2.toLowerCase().includes(query) ||
             // person.skill3.toLowerCase().includes(query)
