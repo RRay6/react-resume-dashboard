@@ -55,8 +55,8 @@ app.get("/converter", cors(), async (req, res) => {
       //res.send(unit.filename)
 
       arr1 =
-        "C:/Users/Ryanka Ray/Documents/Headstarters/react-resume-dashboard/backend/public/";
 
+        "G:/TheHeadStarter/react-resume-dashboard/backend/public/";
       const a = arr1.concat(unit.filename);
 
       //res.send(a)
@@ -97,7 +97,7 @@ app.get("/converter", cors(), async (req, res) => {
 
   //arr2 = 'C:/Users/Ryanka Ray/Documents/Headstarters/new_Project_1/'
 
-  //fs.writeFileSync("pdf.json", JSON.stringify(words));
+  fs.writeFileSync("pdf.json", JSON.stringify(words));
   res.send(JSON.stringify(words));
 });
 
