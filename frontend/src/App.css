@@ -4,7 +4,12 @@
   font-family: 'Poppins';
   color: #594157;
   /* text-align: center; */
-  background: linear-gradient(180deg, #BEE7E8 25.74%, #B9ECED 69.78%, #FFFFFF 100%);
+  background: linear-gradient(
+    180deg,
+    #bee7e8 25.74%,
+    #b9eced 69.78%,
+    #ffffff 100%
+  );
   min-height: 100vh;
   display: flex;
 }
@@ -15,7 +20,7 @@
   height: 64px;
   left: 0px;
   top: 0px;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 0px 0px 10px 10px;
 }
 
@@ -57,22 +62,22 @@
   font-size: 20px;
   line-height: 22px;
   text-transform: lowercase;
-  color: #FEFEFE;
+  color: #fefefe;
 }
 
 .uploadResume:hover {
-  background: #7D8CC4;
+  background: #7d8cc4;
   cursor: pointer;
 }
 
 .uploadModal {
   position: absolute;
   width: 780px;
-  height: 600px;
+  height: 700px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #FEFEFE;
+  background: #fefefe;
   outline: none;
 }
 
@@ -92,11 +97,11 @@
   align-items: center;
   width: 530px;
   height: 162px;
-  top: 30%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: none;
-  border: 5px dashed #7D8CC4;
+  border: 5px dashed #7d8cc4;
   border-radius: 20px;
 
   /* Text */
@@ -110,8 +115,8 @@
 }
 
 .uploadPromptDefault:hover {
-  border: 5px dashed #7D8CC4;
-  color: #7D8CC4;
+  border: 5px dashed #7d8cc4;
+  color: #7d8cc4;
   cursor: pointer;
 }
 
@@ -122,7 +127,7 @@
   align-items: center;
   width: 530px;
   height: 162px;
-  top: 30%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: none;
@@ -140,27 +145,47 @@
 }
 
 .uploadPromptSelected:hover {
-  border: 5px solid #7D8CC4;
-  color: #7D8CC4;
+  border: 5px solid #7d8cc4;
+  color: #7d8cc4;
   cursor: pointer;
 }
 
 .uploadNameContainer {
   position: absolute;
   width: 580px;
-  height: 87px;
+  height: 60px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  top: 62%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: 'Poppins';
 }
 
 .uploadNameContainer span {
-  font-size: 20px;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.uploadEmailContainer {
+  position: absolute;
+  width: 580px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Poppins';
+}
+
+.uploadEmailContainer span {
+  font-size: 15px;
   font-style: normal;
   font-weight: 500;
 }
@@ -174,8 +199,8 @@
   gap: 10px;
   width: 580px;
   height: 54px;
-  background: #FEFEFE;
-  border: 2px solid #7D8CC4;
+  background: #fefefe;
+  border: 2px solid #7d8cc4;
   border-radius: 10px;
 
   text-align: center;
@@ -183,14 +208,73 @@
   font-size: 14px;
 }
 
+.uploadBirthdayContainer {
+  position: absolute;
+  width: 580px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Poppins';
+}
+
+.uploadBirthdayContainer span {
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.uploadPhoneNumberContainer {
+  position: absolute;
+  width: 580px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Poppins';
+}
+
+.uploadPhoneNumberContainer span {
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.uploadLocationContainer {
+  position: absolute;
+  width: 580px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Poppins';
+}
+
+.uploadLocationContainer span {
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+}
 .uploadSubmitBtn {
   position: absolute;
   width: 124px;
   height: 50px;
-  top: 83%;
+  top: 95%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #726DA8;
+  background: #726da8;
   border: none;
   border-radius: 15px;
 
@@ -201,11 +285,11 @@
   line-height: 22px;
   letter-spacing: -1px;
   text-transform: lowercase;
-  color: #FEFEFE;
+  color: #fefefe;
 }
 
 .uploadSubmitBtn:hover {
-  background: #7D8CC4;
+  background: #7d8cc4;
   cursor: pointer;
 }
 
@@ -222,7 +306,7 @@
 }
 
 .uploadCloseBtn:hover {
-  color: #7D8CC4;
+  color: #7d8cc4;
   cursor: pointer;
 }
 
@@ -234,10 +318,10 @@
   height: 50px;
   top: 14%;
   left: 20%;
-  background: #FEFEFE;
+  background: #fefefe;
 
   /* Border*/
-  border: 2px solid #7D8CC4;
+  border: 2px solid #7d8cc4;
   border-radius: 15px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -277,7 +361,7 @@
   height: 50px;
   top: 23%;
   left: 20%;
-  color: #2B2B2B;
+  color: #2b2b2b;
   font-size: 16px;
 }
 
@@ -301,7 +385,7 @@
   top: 32%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #2B2B2B;
+  color: #2b2b2b;
   letter-spacing: -1px;
 }
 
@@ -319,8 +403,8 @@
 }
 
 .resumeTile {
-  background: #FEFEFE;
-  box-shadow: 2px 4px 10px #A0D2DB;
+  background: #fefefe;
+  box-shadow: 2px 4px 10px #a0d2db;
   border-radius: 20px;
   /* with absolute position, WxH is % of the div it is inside */
   width: 20%;
@@ -329,7 +413,7 @@
 
   /* Text */
   font-size: 12px;
-  color: #2B2B2B;
+  color: #2b2b2b;
 }
 
 .resumeTile h1 {
@@ -369,10 +453,10 @@
   height: 60%;
   box-sizing: border-box;
   padding: 3px 7px;
-  border: 0.5px dashed #726DA8;
+  border: 0.5px dashed #726da8;
   border-radius: 10px;
 
-  color: #726DA8;
+  color: #726da8;
 }
 
 .resumeSkillActive {
@@ -380,10 +464,10 @@
   height: 60%;
   box-sizing: border-box;
   padding: 3px 7px;
-  border: 0.5px solid #726DA8;
+  border: 0.5px solid #726da8;
   border-radius: 10px;
 
-  color: #726DA8;
+  color: #726da8;
 }
 
 .resumeTile button {
@@ -391,7 +475,7 @@
   position: relative;
   width: 40%;
   height: 15%;
-  background: #7D8CC4;
+  background: #7d8cc4;
   border: none;
   border-radius: 15px;
   bottom: -10%;
@@ -404,11 +488,11 @@
   line-height: 22px;
   letter-spacing: -1px;
   text-transform: lowercase;
-  color: #FEFEFE;
+  color: #fefefe;
 }
 
 .resumeTile button:hover {
-  background: #7D8CC4;
+  background: #7d8cc4;
   cursor: pointer;
 }
 
